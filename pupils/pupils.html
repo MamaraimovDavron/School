@@ -26,6 +26,22 @@
 
         <div class="table-box">
             <h1>O`quvchilar Jadvali</h1>
+
+            <div class="row filter">
+                <div class="col-6">
+                    <input 
+                        class="form-control mb-4" 
+                        type="text" 
+                        placeholder="filters" 
+                        onchange="filter(event)" />
+                </div>
+
+                <div class="col-6">
+                    <button class="btn btn-danger text-light fw-bold" onclick="clear()">Tozalash!</button>
+                </div>
+
+            </div>
+
         <table class="table table-dark-hover" id="pupilsTable">
             <thead>
                 <tr>

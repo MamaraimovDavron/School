@@ -133,6 +133,8 @@ const tbodyPupilsTable = pupilsTable.children[1];
 
 // let i = 1;
 
+
+
 const btnRemove = () => {
     for(let i = 0; i <= students.length; i++){
         tbodyPupilsTable.children[i].remove();
@@ -142,6 +144,7 @@ const btnRemove = () => {
 
 
 const loaded = () => {
+    
     tbodyPupilsTable.innerHTML = "";
 
     students.map((item, index) => {
@@ -162,10 +165,18 @@ const loaded = () => {
         </tr>
         `
         tbodyPupilsTable.appendChild(row);
+        // clear();
+        // clear();
     })
+}
+
+const clear = () => {
+    tbodyPupilsTable.innerHTML = "";
+
 }
 
 const filter = (e) => {
     console.log(e.target.value);
 }
+
 
