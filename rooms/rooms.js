@@ -57,3 +57,7 @@ const loaded = (filters = {}) => {
         tbodyRoomsTable.appendChild(row);
     })
 }
+
+const clearAll = () => {
+    roomsTable.innerHTML = "";
+}

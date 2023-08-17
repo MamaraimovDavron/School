@@ -59,6 +59,15 @@ const loaded = (filters = {}) => {
     })
 }
 
+
+const clearAll = () => {
+    subjectsTable.innerHTML = "";
+
+    // tbodyPupilsTable.innerHTML = "";
+}
+
+
+
 const filter = (e) => {
     // if(e.target.value.toLowerCase() == subjects[2].subject.toLowerCase()){
     //     console.log('True')
@@ -75,3 +84,4 @@ const filter = (e) => {
     //     }
     // })
 }
+

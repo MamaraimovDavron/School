@@ -70,6 +70,10 @@ const loaded = (filters = {}) => {
     })
 }
 
+const clearAll = () => {
+    workersTable.innerHTML = "";
+}
+
 const filter = (e) => {
     console.log(e.target.value);
     loaded({firstName: e.target.value });

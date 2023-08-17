@@ -144,3 +144,7 @@ const filter = (e) => {
     loaded({firstName: e.target.value });
     loaded({lastName: e.target.value });
 }
+
+const clearAll = () => {
+    teachersTable.innerHTML = "";
+}

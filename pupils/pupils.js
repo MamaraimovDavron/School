@@ -170,13 +170,11 @@ const loaded = () => {
     })
 }
 
-const clear = () => {
-    tbodyPupilsTable.innerHTML = "";
-
+const clearAll = () => {
+    pupilsTable.innerHTML = "";
+    // tbodyPupilsTable.innerHTML = "";
 }
 
 const filter = (e) => {
     console.log(e.target.value);
 }
-
-
