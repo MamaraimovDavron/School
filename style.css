@@ -36,15 +36,17 @@
 .main .left ul li {
   list-style-type: none;
 }
-.main .left ul li:active {
-  background-color: red;
-}
 .main .left ul li a {
   text-decoration: none;
   color: white;
 }
 .main .left ul li a:hover {
   opacity: 0.7;
+}
+.main .left ul li .active {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 4px 8px;
 }
 .main .hide {
   display: none;

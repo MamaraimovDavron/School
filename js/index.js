@@ -76,12 +76,12 @@ const clickTeachers = () => {
 
 // bolimlar 
 const sections = [
-    {title: "O`qituvchilar", link: "../teachers/teachers.html"},
-    {title: "O`quvchilar", link: "../pupils/pupils.html"},
-    {title: "Xodimlar", link: "../workers/workers.html"},
-    {title: "Fanlar", link: "../subjects/subjects.html"},
-    {title: "Xonalar", link: "../rooms/rooms.html"},
-    {title: "Dars jadvallari", link: "../journals/journals.html"},
+    {title: "O`qituvchilar", link: "./teachers/teachers.html"},
+    {title: "O`quvchilar", link: "./pupils/pupils.html"},
+    {title: "Xodimlar", link: "./workers/workers.html"},
+    {title: "Fanlar", link: "./subjects/subjects.html"},
+    {title: "Xonalar", link: "./rooms/rooms.html"},
+    {title: "Dars jadvallari", link: "./journals/journals.html"},
 ]
 
 const setCards = () => {

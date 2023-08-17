@@ -43,6 +43,11 @@
 .main-rooms .left ul li a:hover {
   opacity: 0.7;
 }
+.main-rooms .left ul li .active {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
 .main-rooms .table-box {
   display: flex;
   flex-direction: column;
