@@ -31,8 +31,10 @@ const tbodyWorkersTable = workersTable.children[1];
 
 const btnRemove = () => {
 
-    for(let i = 0; i <= workers.length + 1; i++){
-       console.log(tbodyWorkersTable.children[i]);
+    for(let i = 0; i <= workers.length; i++){
+       tbodyWorkersTable.children[i].remove();
+       return;
+    // console.log(tbdoyWorkersTable.children[i]);
     }
  }
 

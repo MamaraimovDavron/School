@@ -93,6 +93,13 @@ const teachersTable = document.getElementById("teachersTable");
 const tbodyTeachersTable = teachersTable.children[1];
 console.log(tbodyTeachersTable);
 
+const btnRemove = () => {
+    for(let i = 0; i <= teachers.length; i++){
+        tbodyTeachersTable.children[i].remove();
+        return;
+    }
+}
+
 const loaded = (filters = {}) => {
     // tozalash
     tbodyTeachersTable.innerHTML = "";
@@ -114,7 +121,7 @@ const loaded = (filters = {}) => {
             <td>${item.subject}</td>
             <td>${item.phone}</td>
             <td>
-                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-danger" onclick="btnRemove()"><i class="bi bi-trash"></i></button>
             </td>
         </tr>
         `;

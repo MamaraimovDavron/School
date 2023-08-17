@@ -133,6 +133,14 @@ const tbodyPupilsTable = pupilsTable.children[1];
 
 // let i = 1;
 
+const btnRemove = () => {
+    for(let i = 0; i <= students.length; i++){
+        tbodyPupilsTable.children[i].remove();
+        return;
+    }
+ }
+
+
 const loaded = () => {
     tbodyPupilsTable.innerHTML = "";
 
@@ -147,7 +155,7 @@ const loaded = () => {
             <td>${item.class}</td>
             <td>${item.phone}</td>
             <td>
-                <button class="btn btn-danger" >
+                <button class="btn btn-danger" onclick="btnRemove()">
                     <i class="bi bi-trash"></i>
                 </button>
             </td>
@@ -161,8 +169,3 @@ const filter = (e) => {
     console.log(e.target.value);
 }
 
-const btnRemove = () => {
-   students.map((item, index) => {
-        tbodyPupilsTable.children[index].remove();
-   })
-}
