@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <title>Dars Jadvali</title>
 </head>
-<body>
+<body onload="loaded()">
     <div class="main-journals">
         <div class="left hide" id="leftSide">
           <h2 class="text-center text-primary">Maktab</h2>
@@ -28,6 +28,22 @@
         <div class="table-box">
             <h1>Dars Jadvali</h1>
 
+            <div class="time">
+                <p id="watch" class=" text-center text-danger fw-bold">time</p>    
+            </div>
+
+
+            <marquee behavior="" direction="">
+                <p class="fw-bold text-success">
+                    Ilmni qadrlang, ilmga intiling! 
+                    Bir soniya vaqtingiz ham bekor o‘tmasin!
+                    Yoshlik – umrning eng bebaho davri. 
+                    Ilm va bilim – o‘tda yonmaydigan, suvda cho‘kmaydigan, hech kim sizdan tortib ololmaydigan boylik ekanini aslo unutmang
+                </p>
+            </marquee>
+
+            
+
             <!-- <div class="row filter">
                 <div class="col-6">
                     <input 
@@ -43,26 +59,29 @@
 
             </div> -->
 
-            <table class="table table-light table-hover" id="teachersTable">
+            <table class="table table-light table-hover" id="timeTable">
                 <thead>
                     <tr>
-                        <th>№</th>
-                        <th>Dars nomi</th>
-                        <th>Dars vaqti</th>
-                        <th>Dars davomiyligi</th>
-                        <th>Dars </th>
-                        <th>
-                        </th>
+                        <th>Vaqt</th>
+                        <th>Dushanba</th>
+                        <th>Seshanba</th>
+                        <th>Chorshanba</th>
+                        <th>Payshanba</th>
+                        <th>Juma</th>
+                        <th>Shanba</th>
+                        <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td class="text-primary"><b>8.00-8.45</b></td>
+                        <td class="fw-bold text-primary">Fizika</td>
+                        <td class="fw-bold text-primary">Informatika</td>
+                        <td class="fw-bold text-primary">Matematika</td>
+                        <td class="fw-bold text-primary">Jismoniy Tarbiya</td>
+                        <td class="fw-bold text-primary">Musiqa</td>
+                        <td class="fw-bold text-primary">Ona tili</td>
                         <td>
                             <button class="btn btn-danger">
                                 <i class="bi bi-trash"></i>
