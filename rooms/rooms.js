@@ -1,46 +1,49 @@
 const rooms = [
-    {
-        room: "Informatika",
-        roomNumber: "23",
-        roomStep: '2',
-    },
-    {
-        room: "Fizika",
-        roomNumber: "2",
-        roomStep: '1',
-    },
-    {
-        room: "Matematika",
-        roomNumber: "3",
-        roomStep: '1',
-    },
-    {
-        room: "Kutubxona",
-        roomNumber: "30",
-        roomStep: '2',
-    },
-]
+  {
+    room: "Informatika",
+    roomNumber: "23",
+    roomStep: "2",
+  },
+  {
+    room: "Fizika",
+    roomNumber: "2",
+    roomStep: "1",
+  },
+  {
+    room: "Matematika",
+    roomNumber: "3",
+    roomStep: "1",
+  },
+  {
+    room: "Kutubxona",
+    roomNumber: "30",
+    roomStep: "2",
+  },
+];
 
 const roomsTable = document.getElementById("roomsTable");
 const tbodyRoomsTable = roomsTable.children[1];
 // console.log(tbodyRoomsTable);
 
 const btnRemove = () => {
-    for(let i = 0; i <= rooms.length; i++){
-        tbodyRoomsTable.children[i].remove();
-        return;
-    }
-}
+  for (let i = 0; i <= rooms.length; i++) {
+    tbodyRoomsTable.children[i].remove();
+    return;
+  }
+};
 
 const loaded = (filters = {}) => {
-    tbodyRoomsTable.innerHTML = "";
+  tbodyRoomsTable.innerHTML = "";
 
-    const data = rooms.filter((item, index) => item.room.includes(filters.room || ""));
+  const data = rooms.filter(
+    (item) =>
+      item.room.toLowerCase().includes(filters.room || "") ||
+      item.room.includes(filters.roomNumber || "")
+  );
 
-    data.map((item, index) => {
-
-        const row = document.createElement('tr');
-        row.innerHTML = `
+  data.map((item, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
         <tr>
             <td>${index + 1}</td>
             <td>${item.room}</td>
@@ -54,10 +57,14 @@ const loaded = (filters = {}) => {
         </tr>
         `;
 
-        tbodyRoomsTable.appendChild(row);
-    })
-}
+    tbodyRoomsTable.appendChild(row);
+  });
+};
+
+const filter = (e) => {
+  loaded({ room: e.target.value, roomNumber: e.target.value });
+};
 
 const clearAll = () => {
-    roomsTable.innerHTML = "";
-}
+  roomsTable.innerHTML = "";
+};

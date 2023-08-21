@@ -1,79 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-    <link rel="stylesheet" href="./rooms.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./rooms.css" />
     <title>Rooms</title>
-</head>
-<body onload="loaded()">
+  </head>
+  <body onload="loaded()">
     <div class="main-rooms">
-        <div class="left hide" id="leftSide">
-          <h2 class="text-center text-primary">Maktab</h2>
-            <span></span>
-            <ul><li><a href="../index.html">Bosh sahifa</a></li></ul>
-            <ul><li><a href="../teachers/teachers.html">O`qituvchilar</a></li></ul>
-            <ul><li><a href="../pupils/pupils.html">O`quvchilar</a></li></ul>
-            <ul><li><a href="../workers/workers.html">Xodimlar</a></li></ul>
-            <ul><li><a href="../subjects/subjects.html">Fanlar</a></li></ul>
-            <ul><li><a href="#" class="active">Xonalar</a></li></ul>
-            <ul><li><a href="#">Dars jadvallari</a></li></ul>
+      <div class="left hide" id="leftSide">
+        <h2 class="text-center text-primary">Maktab</h2>
+        <span></span>
+        <ul>
+          <li><a href="../index.html">Bosh sahifa</a></li>
+        </ul>
+        <ul>
+          <li><a href="../teachers/teachers.html">O`qituvchilar</a></li>
+        </ul>
+        <ul>
+          <li><a href="../pupils/pupils.html">O`quvchilar</a></li>
+        </ul>
+        <ul>
+          <li><a href="../workers/workers.html">Xodimlar</a></li>
+        </ul>
+        <ul>
+          <li><a href="../subjects/subjects.html">Fanlar</a></li>
+        </ul>
+        <ul>
+          <li><a href="#" class="active">Xonalar</a></li>
+        </ul>
+        <ul>
+          <li><a href="../journals/journals.html">Dars jadvallari</a></li>
+        </ul>
+      </div>
+
+      <div class="table-box">
+        <h1>Xonalar ro`yhati</h1>
+
+        <div class="row filter">
+          <div class="col-6">
+            <input
+              class="form-control mb-4"
+              type="text"
+              placeholder="filters"
+              onchange="filter(event)"
+            />
+          </div>
+
+          <div class="col-6">
+            <button
+              class="btn btn-danger text-light fw-bold"
+              onclick="clearAll()"
+            >
+              Tozalash!
+            </button>
+          </div>
         </div>
 
-        
-        <div class="table-box">
-            <h1>Xonalar ro`yhati</h1>
+        <table class="table table-light table-hover" id="roomsTable">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Xona nomi</th>
+              <th>Xona raqami</th>
+              <th>Xona qavati</th>
+              <th></th>
+            </tr>
+          </thead>
 
-            <div class="row filter">
-                <div class="col-6">
-                    <input 
-                        class="form-control mb-4" 
-                        type="text" 
-                        placeholder="filters" 
-                        onchange="filter(event)" />
-                </div>
-
-                <div class="col-6">
-                    <button class="btn btn-danger text-light fw-bold" onclick="clearAll()">Tozalash!</button>
-                </div>
-
-            </div>
-
-            <table class="table table-light table-hover" id="roomsTable">
-                <thead>
-                    <tr>
-                        <th>№</th>
-                        <th>Xona nomi</th>
-                        <th>Xona raqami</th>
-                        <th>Xona qavati</th>
-                        <th></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Informatika</td>
-                        <td>23</td>
-                        <td>1-qavat</td>
-                        <td>
-                            <button class="btn btn-danger">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-       
-        </div>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Informatika</td>
+              <td>23</td>
+              <td>1-qavat</td>
+              <td>
+                <button class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
     <script src="./rooms.js"></script>
-</body>
+  </body>
 </html>

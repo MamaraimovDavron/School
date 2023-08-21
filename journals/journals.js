@@ -63,6 +63,7 @@ const hours = date.getHours();
 const minutes = date.getMinutes();
 
 const currentTime = hours + ':' + minutes;
+    
 
 watch.innerHTML = currentTime;
 

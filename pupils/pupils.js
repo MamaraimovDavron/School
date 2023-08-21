@@ -7,7 +7,6 @@
 // const btnAddress7 = document.getElementById('btnAddress7');
 // const btnAddress8 = document.getElementById('btnAddress8');
 
-
 // let pupilName1 = document.getElementById('name1');
 // let pupilName2 = document.getElementById('name2');
 // let pupilName3 = document.getElementById('name3');
@@ -59,7 +58,6 @@
 //     // }
 // }
 
-
 // // const showTrue = () => {
 // //     alert('Ma`lumot noto`g`ri kiritildi!');
 // // }
@@ -97,61 +95,60 @@
 // }
 
 const students = [
-    {
-        firstName: "Javohir",
-        lastName: "Miziraimov",
-        class: "9-A",
-        phone: "99 454 15 35",
-    },
+  {
+    firstName: "Javohir",
+    lastName: "Miziraimov",
+    class: "9-A",
+    phone: "99 454 15 35",
+  },
 
-    {
-        firstName: "Jonibek",
-        lastName: "Miziraimov",
-        class: "7-A",
-        phone: "99 154 15 32",
-    },
+  {
+    firstName: "Jonibek",
+    lastName: "Miziraimov",
+    class: "7-A",
+    phone: "99 154 15 32",
+  },
 
-    {
-        firstName: "Akbarshox",
-        lastName: "Miziraimov",
-        class: "6-A",
-        phone: "91 154 15 30",
-    },
+  {
+    firstName: "Akbarshox",
+    lastName: "Miziraimov",
+    class: "6-A",
+    phone: "91 154 15 30",
+  },
 
-    {
-        firstName: "Jahongir",
-        lastName: "Miziraimov",
-        class: "5-A",
-        phone: "93 124 15 30",
-    },
-
-]
-
+  {
+    firstName: "Jahongir",
+    lastName: "Yusupov",
+    class: "5-A",
+    phone: "93 124 15 30",
+  },
+];
 
 const pupilsTable = document.getElementById("pupilsTable");
 const tbodyPupilsTable = pupilsTable.children[1];
 
 // let i = 1;
 
-
-
 const btnRemove = () => {
-    for(let i = 0; i <= students.length; i++){
-        tbodyPupilsTable.children[i].remove();
-        return;
-    }
- }
+  for (let i = 0; i <= students.length; i++) {
+    tbodyPupilsTable.children[i].remove();
+    return;
+  }
+};
 
+const loaded = (filters = {}) => {
+  tbodyPupilsTable.innerHTML = "";
 
-const loaded = () => {
-    
-    tbodyPupilsTable.innerHTML = "";
+  const data = students.filter(
+    (item) =>
+      item.firstName.toLowerCase().includes(filters.firstName || "") ||
+      item.lastName.toLowerCase().includes(filters.lastName || "")
+  );
 
-    students.map((item, index) => {
-
-        const row = document.createElement('tr');
-        row.innerHTML = `
-        <tr id="1">
+  data.map((item, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <tr>
             <td>${index + 1}</td>
             <td>${item.firstName}</td>
             <td>${item.lastName}</td>
@@ -163,18 +160,17 @@ const loaded = () => {
                 </button>
             </td>
         </tr>
-        `
-        tbodyPupilsTable.appendChild(row);
-        // clear();
-        // clear();
-    })
-}
+        `;
 
-const clearAll = () => {
-    pupilsTable.innerHTML = "";
-    // tbodyPupilsTable.innerHTML = "";
-}
+    tbodyPupilsTable.appendChild(row);
+  });
+};
 
 const filter = (e) => {
-    console.log(e.target.value);
-}
+  loaded({ lastName: e.target.value, firstName: e.target.value });
+};
+
+const clearAll = () => {
+  pupilsTable.innerHTML = "";
+  // tbodyPupilsTable.innerHTML = "";
+};

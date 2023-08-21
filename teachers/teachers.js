@@ -63,59 +63,59 @@
 // }
 
 const teachers = [
-    {
-        firstName: "Davron",
-        lastName: "Mamaraimov",
-        subject: "Fizika",
-        phone: "99 937 49 96"
-    },
-    {
-        firstName: "Azim",
-        lastName: "Raimov",
-        subject: "Informatika",
-        phone: "99 337 39 96"
-    },
-    {
-        firstName: "Abdusamat",
-        lastName: "Fayzullayev",
-        subject: "English",
-        phone: "95 137 19 96"
-    },
-    {
-        firstName: "Sobir",
-        lastName: "Madraimov",
-        subject: "Matematika",
-        phone: "90 537 29 96"
-    }
-]
+  {
+    firstName: "Davron",
+    lastName: "Mamaraimov",
+    subject: "Fizika",
+    phone: "99 937 49 96",
+  },
+  {
+    firstName: "Azim",
+    lastName: "Raimov",
+    subject: "Informatika",
+    phone: "99 337 39 96",
+  },
+  {
+    firstName: "Abdusamat",
+    lastName: "Fayzullayev",
+    subject: "English",
+    phone: "95 137 19 96",
+  },
+  {
+    firstName: "Sobir",
+    lastName: "Madraimov",
+    subject: "Matematika",
+    phone: "90 537 29 96",
+  },
+];
 
 const teachersTable = document.getElementById("teachersTable");
 const tbodyTeachersTable = teachersTable.children[1];
 console.log(tbodyTeachersTable);
 
-
 const btnRemove = () => {
-    for(let i = 0; i <= teachers.length; i++){
-        tbodyTeachersTable.children[i].remove();
-        return;
-    }
-}
-
+  for (let i = 0; i <= teachers.length; i++) {
+    tbodyTeachersTable.children[i].remove();
+    return;
+  }
+};
 
 const loaded = (filters = {}) => {
-    // tozalash
-    tbodyTeachersTable.innerHTML = "";
+  // tozalash
+  tbodyTeachersTable.innerHTML = "";
 
-    // filters.name;
+  // filters.name;
 
-    const data = teachers.filter((item, index) =>
-        item.firstName.includes(filters.firstName || ""));
+  const data = teachers.filter(
+    (item) =>
+      item.firstName.toLowerCase().includes(filters.firstName || "") ||
+      item.lastName.toLowerCase().includes(filters.lastName || "")
+  );
+  console.log(data);
 
-
-    data.map((item, index) => {
-
-        const row = document.createElement('tr');
-        row.innerHTML = `
+  data.map((item, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
         <tr>
             <td>${index + 1}</td>
             <td>${item.firstName}</td>
@@ -127,24 +127,18 @@ const loaded = (filters = {}) => {
             </td>
         </tr>
         `;
-    
-        tbodyTeachersTable.appendChild(row);
-    })
 
-    // const clear = () => {
-    //     tbodyTeachersTable.innerHTML = "";
-    // }
-
-    // tbodyTeachersTable.innerHTML = "";
-    
-}
+    tbodyTeachersTable.appendChild(row);
+  });
+};
 
 const filter = (e) => {
-    console.log(e.target.value);
-    loaded({firstName: e.target.value });
-    loaded({lastName: e.target.value });
-}
+  // console.log(e.target.value);
+  loaded({ lastName: e.target.value, firstName: e.target.value });
+
+  //   loaded({ firstName: e.target.value });
+};
 
 const clearAll = () => {
-    teachersTable.innerHTML = "";
-}
+  teachersTable.innerHTML = "";
+};
