@@ -35,10 +35,8 @@ const btnRemove = () => {
 const loaded = (filters = {}) => {
   tbodyRoomsTable.innerHTML = "";
 
-  const data = rooms.filter(
-    (item) =>
-      item.room.toLowerCase().includes(filters.room || "") ||
-      item.room.includes(filters.roomNumber || "")
+  const data = rooms.filter((item) =>
+    item.room.toLowerCase().includes(filters.room || "")
   );
 
   data.map((item, index) => {
@@ -62,7 +60,7 @@ const loaded = (filters = {}) => {
 };
 
 const filter = (e) => {
-  loaded({ room: e.target.value, roomNumber: e.target.value });
+  loaded({ room: e.target.value });
 };
 
 const clearAll = () => {
